@@ -6,28 +6,42 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form id="form" class="formBody">
-        <fieldset> <!-- fieldset reference: https://www.w3schools.com/tags/tag_fieldset.asp -->
-          <legend id="formHeader">Please enter table specifications</legend>
-            <!-- form labels and entries -->
-            <div class="formLabelEntryPair">
-              <label for="colMin">Minimum column value (between -50 to 50)</label>
-              <input type="number" id="colMin" name="colMin">
-            </div>
-            <div class="formLabelEntryPair">
-              <label for="colMax">Maximum column value (between -50 to 50)</label>
-              <input type="number" id="colMax" name="colMax">
-            </div>
-            <div class="formLabelEntryPair">
-              <label for="rowMin">Minimum row value (between -50 to 50)</label>
-              <input type="number" id="rowMin" name="rowMin">
-            </div>
-            <div class="formLabelEntryPair">
-              <label for="rowMax">Maximum row value (between -50 to 50)</label>
-              <input type="number" id="rowMax" name="rowMax">
-            </div>
-        </fieldset>
+    <!-- user inputs for table -->
+    <form id="form" class="inlineElement formBody">
+      <fieldset> <!-- fieldset reference: https://www.w3schools.com/tags/tag_fieldset.asp -->
+        <legend id="formHeader">Please enter table specifications</legend>
+          <!-- form labels and entries -->
+          <div class="formLabelEntryPair">
+            <label for="colMin">Minimum column value (between -50 to 50)</label>
+            <input type="number" id="colMin" name="colMin">
+          </div>
+          <div class="formLabelEntryPair">
+            <label for="colMax">Maximum column value (between -50 to 50)</label>
+            <input type="number" id="colMax" name="colMax">
+          </div>
+          <div class="formLabelEntryPair">
+            <label for="rowMin">Minimum row value (between -50 to 50)</label>
+            <input type="number" id="rowMin" name="rowMin">
+          </div>
+          <div class="formLabelEntryPair">
+            <label for="rowMax">Maximum row value (between -50 to 50)</label>
+            <input type="number" id="rowMax" name="rowMax">
+          </div>
+      </fieldset>
     </form>
+    <!-- placeholder table for testing -->
+    <div id="tableContainer" class="inlineElement">
+      <table>
+        <tr>
+          <td>999</td>
+          <td>888</td>
+        </tr>
+        <tr>
+          <td>777</td>
+          <td>000</td>
+        </tr>
+      </table>
+    </div>
     <!-- JS code for generating table -->
     <script src="script.js"></script>
   </body>
