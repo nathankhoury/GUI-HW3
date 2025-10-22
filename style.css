@@ -1,8 +1,11 @@
 /*** Tags ***/
 
 /*** Classes ***/
-.formContents {
+.formBody {
     text-align: center;
+}
+.formLabelEntryPair {
+    padding: 8px 8px 8px 8px
 }
 
 /*** IDs ***/

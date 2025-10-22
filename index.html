@@ -6,10 +6,26 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form id="form" class="formContents">
-        <fieldset>
-            <!-- fieldset reference: https://www.w3schools.com/tags/tag_fieldset.asp -->
-            <legend id="formHeader">Please enter table specifications</legend>
+    <form id="form" class="formBody">
+        <fieldset> <!-- fieldset reference: https://www.w3schools.com/tags/tag_fieldset.asp -->
+          <legend id="formHeader">Please enter table specifications</legend>
+            <!-- form labels and entries -->
+            <div class="formLabelEntryPair">
+              <label for="colMin">Minimum column value (between -50 to 50)</label>
+              <input type="number" id="colMin" name="colMin">
+            </div>
+            <div class="formLabelEntryPair">
+              <label for="colMax">Maximum column value (between -50 to 50)</label>
+              <input type="number" id="colMax" name="colMax">
+            </div>
+            <div class="formLabelEntryPair">
+              <label for="rowMin">Minimum row value (between -50 to 50)</label>
+              <input type="number" id="rowMin" name="rowMin">
+            </div>
+            <div class="formLabelEntryPair">
+              <label for="rowMax">Maximum row value (between -50 to 50)</label>
+              <input type="number" id="rowMax" name="rowMax">
+            </div>
         </fieldset>
     </form>
     <!-- JS code for generating table -->
