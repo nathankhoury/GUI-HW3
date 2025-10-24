@@ -14,18 +14,55 @@ function generate() {
     errors.style.borderStyle = "none";
     hasErrors = false;
     // get user inputs from form
-    const colMin = document.getElementById("colMin").value;
-    const colMax = document.getElementById("colMax").value;
-    const rowMin = document.getElementById("rowMin").value;
-    const rowMax = document.getElementById("rowMax").value;
+    let colMin = document.getElementById("colMin").value;
+    let colMax = document.getElementById("colMax").value;
+    let rowMin = document.getElementById("rowMin").value;
+    let rowMax = document.getElementById("rowMax").value;
     // debug message to terminal
     console.log("got inputs: " + colMin + ", " + colMax + ", " + rowMin + ", " + rowMax);
     // verify numeric input
     const verificationStatus = verify(colMin, colMax, rowMin, rowMax);
     console.log("input verified: " + verificationStatus);
-    // generate table
+    if (verificationStatus) {
+        // cast to integers for remaining processes
+        colMin = Number(colMin);
+        colMax = Number(colMax);
+        rowMin = Number(rowMin);
+        rowMax = Number(rowMax);
+        // generate table
+        genTable(colMin, colMax, rowMin, rowMax);
+    }
 }
 
+// generate the table post-validation
+function genTable(cmin, cmax, rmin, rmax) {
+    // https://www.w3schools.com/jsref/met_table_insertrow.asp
+    // get table reference
+    let table = document.getElementById("result");
+    // clear table if any
+    table.innerHTML = ""
+    // get ranges
+    const xRange = cmax - cmin;
+    const yRange = rmax - rmin;
+    // fill in table
+    for (let i = 0; i < yRange + 1; i++) {
+        let row = table.insertRow(i);
+        for (let j = 0; j < xRange + 1; j++) {
+            let cell = row.insertCell(j);
+            cell.innerHTML = String((j + cmin)*(i + rmin));
+        }
+        let cell = row.insertCell(0);
+        cell.innerHTML = i + rmin;
+    }
+    // add the header at the end
+    let header = table.insertRow(0);
+    let corner = header.insertCell(0);
+    corner.innerHTML = "";
+    for (let j = 0; j < xRange + 1; j++) {
+        let cell = header.insertCell(j + 1);
+        cell.innerHTML =  j + cmin;
+    }
+}
 // return true if x is integer, false otherwise (empty string)
 function isInt(x) {
     if (x === "") {
@@ -47,6 +84,11 @@ function verify(cmin, cmax, rmin, rmax) {
     // verify valid integer input first
     if (verifyInt(cmin, cmax, rmin, rmax, errorLog)) {
         // if they are integers, continue checking for errors
+        // cast to numbers first
+        cmin = Number(cmin);
+        cmax = Number(cmax);
+        rmin = Number(rmin);
+        rmax = Number(rmax);
         // verify numbers are in range
         if (verifyRange(cmin, cmax, rmin, rmax, errorLog)) {
             return true;
@@ -77,7 +119,7 @@ function verifyRange(cmin, cmax, rmin, rmax, e) {
     }
     // assert lower bounds are less than or equal to upper bounds
     if (!(cmin <= cmax)) {
-        console.log("cmin not lte cmax");
+        console.log(cmin +" not lte " + cmax);
         appendError("Column minimum value must be less than or equal to column maximum value");
         e.count++;
     } if (!(rmin <= rmax)) {

@@ -33,3 +33,13 @@ body {
     padding-right: 10px;
     color: rgb(114, 0, 0);
 }
+
+#result {
+    border-collapse: collapse;
+}
+
+#result td, #result tr {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #333;
+}
