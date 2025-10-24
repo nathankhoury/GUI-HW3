@@ -51,16 +51,24 @@ function genTable(cmin, cmax, rmin, rmax) {
             let cell = row.insertCell(j);
             cell.innerHTML = String((j + cmin)*(i + rmin));
         }
+        if (i % 2 == 0) {
+            row.style.backgroundColor = "#aaa";
+        }
         let cell = row.insertCell(0);
         cell.innerHTML = i + rmin;
+        cell.style.backgroundColor = "black";
+        cell.style.color = "white";
     }
     // add the header at the end
     let header = table.insertRow(0);
     let corner = header.insertCell(0);
     corner.innerHTML = "";
+    corner.style.borderStyle = "none";
     for (let j = 0; j < xRange + 1; j++) {
         let cell = header.insertCell(j + 1);
         cell.innerHTML =  j + cmin;
+        cell.style.backgroundColor = "black";
+        cell.style.color = "white";
     }
 }
 // return true if x is integer, false otherwise (empty string)

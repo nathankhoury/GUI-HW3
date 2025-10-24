@@ -43,3 +43,7 @@ body {
     padding: 10px;
     border: 1px solid #333;
 }
+
+#result td:first-child, #result tr:first-child {
+    border-style: none;
+}
