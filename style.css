@@ -10,9 +10,16 @@ body {
     min-width: 400px;
     max-width: 40%;
 }
+
 .formLabelEntryPair {
-    padding: 16px 8px 16px 8px
+    padding: 16px 8px 16px 8px;
 }
+
+.formLabelEntryPair input {
+    margin-left: 8px;
+    float: right;
+}
+
 .inlineElement {
     display: inline-block;
     vertical-align: top;
@@ -21,6 +28,8 @@ body {
 /*** IDs ***/
 #formHeader {
     font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #errors {
@@ -32,6 +41,14 @@ body {
     padding-left: 10px;
     padding-right: 10px;
     color: rgb(114, 0, 0);
+}
+
+#tableContainer {
+    width: 60%;
+    min-height: 400px;
+    max-height: 800px;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 #result {
