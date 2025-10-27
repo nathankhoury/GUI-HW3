@@ -20,6 +20,9 @@ implementation of generating the table.
 // const globals
 const MIN = -50;
 const MAX = 50;
+const COL_COLOR = "#bbf";
+const ROW_COLOR = "#fbb";
+
 
 // document references
 const errors = document.getElementById("errors");
@@ -78,11 +81,14 @@ function genTable(cmin, cmax, rmin, rmax) {
             // insert a new jth cell
             let cell = row.insertCell(j);
             cell.innerHTML = String((j + cmin)*(i + rmin));
+            if ((j + 1) % 2 == 0) {
+                // give every other col a darker background for contrast
+                cell.style.backgroundColor = COL_COLOR;
+            }
         }
-
-        if (i % 2 == 0) {
+        if ((i + 1) % 2 == 0) {
             // give every other row a darker background for contrast
-            row.style.backgroundColor = "#aaa";
+            row.style.backgroundColor = ROW_COLOR;
         }
     
         // manually insert the row label
