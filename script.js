@@ -1,3 +1,21 @@
+/*
+File:           script.js
+Class:          COMP 4610 GUI Programming I
+Assignment:     HW3, "Creating an Interactive Dynamic Table"
+Name:           Nathan Khoury
+Created:        10/22/2025
+Last Modified:  10/27/2025
+
+All dynamic interactivity on the page is handled here. Constant MIN/MAX bounds
+are defined and constant document references are also defined. All code begins
+execution when the "Generate" button is clicked by the user, which calls the "generate()"
+function which serves at the main program driver. If the user has already generated
+a table, it is not deleted until the new table specifications are verified as to not
+trample the user's table without anything to replace it with. After using helper functions
+to verify valid input parameters, genTable() is called which serves as the actual
+implementation of generating the table.
+*/
+
 /* global variables */
 // const globals
 const MIN = -50;

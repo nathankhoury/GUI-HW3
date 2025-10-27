@@ -1,3 +1,15 @@
+/*
+File:           style.css
+Class:          COMP 4610 GUI Programming I
+Assignment:     HW3, "Creating an Interactive Dynamic Table"
+Name:           Nathan Khoury
+Created:        10/22/2025
+Last Modified:  10/27/2025
+
+collection of all selectors grouped by method of selecting (tag selectors, class
+selectors, and ID selectors)
+*/
+
 /*** Tags ***/
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
